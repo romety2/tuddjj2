@@ -1,14 +1,15 @@
-package com.mielewczykl.hibernate.model;
+package com.mielewczykl.hibernate.model.domain;
 
 import java.sql.*;
 
-public class Klasztor {
+public class Religia {
 
     private Connection con;
 
     private String url = "jdbc:jtds:sqlserver://eos.inf.ug.edu.pl;" + "databaseName=lmielewczyk" + ";user=lmielewczyk" + ";password=224701";
 
-    public Klasztor()
+
+    public Religia()
     {
         try {
             con = DriverManager.getConnection(url);

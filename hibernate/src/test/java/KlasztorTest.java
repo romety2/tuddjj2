@@ -1,4 +1,4 @@
-import com.mielewczykl.hibernate.model.Klasztor;
+import com.mielewczykl.hibernate.model.domain.Klasztor;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;

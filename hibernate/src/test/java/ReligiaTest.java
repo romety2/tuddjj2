@@ -1,4 +1,4 @@
-import com.mielewczykl.hibernate.model.Religia;
+import com.mielewczykl.hibernate.model.domain.Religia;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
