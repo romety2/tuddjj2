@@ -1,23 +1,39 @@
 package com.mielewczykl.hibernate.model.domain;
 
-import java.sql.*;
+import javax.persistence.*;
+
+@Entity
+@NamedQueries({
+        @NamedQuery(name = "religia.wszystkie", query = "SELECT r FROM Religia r"),
+})
 
 public class Religia {
+    private Long id;
+    private String religia;
+    private String opis;
 
-    private Connection con;
-
-    private String url = "jdbc:jtds:sqlserver://eos.inf.ug.edu.pl;" + "databaseName=lmielewczyk" + ";user=lmielewczyk" + ";password=224701";
-
-
-    public Religia()
-    {
-        try {
-            con = DriverManager.getConnection(url);
-        } catch (SQLException sqle) {
-        }
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public Connection polaczenie() {
-        return con;
+    @Column(unique = true, nullable = false)
+    public String getReligia() {
+        return religia;
+    }
+    public void setReligia(String religia) {
+        this.religia = religia;
+    }
+
+    public String getOpis() {
+        return opis;
+    }
+    public void setOpis(String opis) {
+        this.opis = opis;
     }
 }
+

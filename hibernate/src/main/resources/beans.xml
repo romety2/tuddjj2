@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
@@ -14,29 +15,20 @@
 
     <context:property-placeholder location="jdbc.properties" />
 
-    <!--
-        Scans within the base package of the application for @Components to
-        configure as beans
-    -->
     <context:component-scan
-            base-package="com.mielewczykl.hibernate.model" />
+            base-package="com.mielewczykl.hibernate.model.service" />
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
-        <property name="driverClassName" value="org.sqldb.jdbcDriver" />
-        <property name="url" value="jdbc:jtds:sqlserver://eos.inf.ug.edu.pl" />
-        <property name="username" value="lmielewczyk" />
-        <property name="password" value="224701" />
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
     </bean>
 
-    <!--
-        enable the configuration of transactional behavior based on
-        annotations
-    -->
     <tx:annotation-driven transaction-manager="txManager" />
 
-    <bean id="hibernateSessionFactory"
-          class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+    <bean id="hibernateSessionFactory"  class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="schemaUpdate" value="true" />
         <property name="hibernateProperties">
@@ -45,7 +37,7 @@
                 <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>
-        <property name="packagesToScan" value="com.mielewczykl.hibernate.model" />
+        <property name="packagesToScan" value="com.mielewczykl.hibernate.model.domain" />
     </bean>
 
     <bean id="txManager"
