@@ -118,6 +118,9 @@ public class ManagerTest {
         Long rId = m.dodaj(r);
         Long kId = m.dodaj(k);
 
+        List<Klasztor> klasztory = m.dajWszystkieKlasztory();
+        List<Religia> religie = m.dajWszystkieReligie();
+
         m.edytuj(r, religia2, opis2);
         m.edytuj(k, r, klasztor2, kontakt2);
 
@@ -131,6 +134,30 @@ public class ManagerTest {
         assertEquals(opis2, ks.getReligia().getOpis());
         assertEquals(klasztor2, ks.getNazwa());
         assertEquals(kontakt2, ks.getKontakt());
+
+        int i = 0;
+
+        List<Klasztor> klasztory2 = m.dajWszystkieKlasztory();
+        List<Religia> religie2 = m.dajWszystkieReligie();
+
+        for(Klasztor klasz : klasztory) {
+            if(klasz.getId() != kId)
+            {
+                assertEquals(klasztory2.get(i).getReligia().getReligia(), klasz.getReligia().getReligia());
+                assertEquals(klasztory2.get(i).getReligia().getOpis(), klasz.getReligia().getOpis());
+                assertEquals(klasztory2.get(i).getNazwa(), klasz.getNazwa());
+                assertEquals(klasztory2.get(i).getKontakt(), klasz.getKontakt());
+            }
+            i++;
+        }
+        for(Religia rel : religie) {
+            if(rel.getId() != rId)
+            {
+                assertEquals(religie2.get(i).getReligia(), rel.getReligia());
+                assertEquals(religie2.get(i).getOpis(), rel.getOpis());
+            }
+            i++;
+        }
     }
 
     @Test
