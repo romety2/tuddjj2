@@ -63,18 +63,29 @@ public class ManagerTest {
 
         List<Religia> religie = m.dajWszystkieReligie();
 
+        boolean usun;
+
         for(Klasztor klasz : klasztory) {
+            usun = true;
             for (Long klasz2 : dodaneKlasztory)
-                if (klasz.getId() == klasz2)
-                    break;
-            m.usun(klasz);
+                if (klasz.getId() == klasz2) {
+                usun = false;
+                break;
+                }
+            if(usun)
+                m.usun(klasz);
         }
 
         for(Religia rel : religie) {
+            usun = true;
             for (Long rel2 : dodaneReligie)
                 if (rel.getId() == rel2)
-                    break;
-            m.usun(rel);
+                    {
+                        usun = false;
+                        break;
+                    }
+            if(usun)
+                m.usun(rel);
         }
     }
 
