@@ -150,15 +150,43 @@ public class ManagerTest {
         Long rId = m.dodaj(r);
         Long kId = m.dodaj(k);
 
+        List<Klasztor> klasztory = m.dajWszystkieKlasztory();
+        List<Religia> religie = m.dajWszystkieReligie();
+
         m.usun(r);
         m.usun(k);
+
+        int ileK = klasztory.size();
+        int ileR = religie.size();
 
         Klasztor ks = m.pobierzKlasztorPoId(kId);
         Religia rs = m.pobierzReligiePoId(rId);
 
         assertEquals(ks, null);
-
         assertEquals(rs, null);
+
+        List<Klasztor> klasztory2 = m.dajWszystkieKlasztory();
+        List<Religia> religie2 = m.dajWszystkieReligie();
+
+        assertEquals(klasztory2.size(), ileK-1);
+        assertEquals(religie2.size(), ileR-1);
+
+        int i = 0;
+
+        for(Klasztor klasz : klasztory) {
+            if(klasz.getId() != kId)
+            {
+                assertEquals(klasztory2.get(i), klasz.getId());
+                i++;
+            }
+        }
+        for(Religia rel : religie) {
+            if(rel.getId() != rId)
+            {
+                assertEquals(religie2.get(i), rel.getId());
+                i++;
+            }
+        }
     }
 
     @Test
