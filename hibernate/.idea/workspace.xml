@@ -27,8 +27,8 @@
       <file leaf-file-name="ManagerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/mielewczykl/hibernate/model/service/ManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.31142858">
-              <caret line="79" column="24" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.25233644">
+              <caret line="23" column="78" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="81" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -649,12 +649,12 @@
       <workItem from="1450309582306" duration="9185000" />
       <workItem from="1450323253107" duration="7215000" />
       <workItem from="1450348743509" duration="14643000" />
-      <workItem from="1450374735426" duration="254000" />
+      <workItem from="1450374735426" duration="2455000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79960000" />
+    <option name="totallyTimeSpent" value="82161000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="786" extended-state="0" />
@@ -700,7 +700,21 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="20" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/mielewczykl/hibernate/model/service/ManagerTest.java</url>
+          <line>178</line>
+          <properties />
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/mielewczykl/hibernate/model/service/ManagerTest.java</url>
+          <line>203</line>
+          <properties />
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="31" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1147,8 +1161,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/mielewczykl/hibernate/model/service/ManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.31142858">
-          <caret line="79" column="24" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.25233644">
+          <caret line="23" column="78" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="81" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
