@@ -13,6 +13,9 @@ public interface Manager {
     Long dodaj(Klasztor klasztor);
     Long dodaj(Religia religia);
 
+    void edytuj(Klasztor k, Religia religia, String nazwa, String kontakt);
+    void edytuj(Religia r, String religia, String opis);
+
     List<Klasztor> dajWszystkieKlasztory();
 
 }

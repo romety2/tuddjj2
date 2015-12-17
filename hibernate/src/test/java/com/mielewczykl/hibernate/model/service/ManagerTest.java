@@ -2,6 +2,8 @@ package com.mielewczykl.hibernate.model.service;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,14 +52,20 @@ public class ManagerTest {
         k.setNazwa(klasztor1);
         k.setKontakt(kontakt1);
 
-        Long RId = m.dodaj(r);
-        Long KId = m.dodaj(k);
+        Long rId = m.dodaj(r);
+        Long kId = m.dodaj(k);
 
-        Klasztor ks = m.pobierzKlasztorPoId(KId);
-        Religia rs = m.pobierzReligiePoId(RId);
+        Klasztor ks = m.pobierzKlasztorPoId(kId);
+        Religia rs = m.pobierzReligiePoId(rId);
 
+        assertEquals(rId, rs.getId());
         assertEquals(religia1, rs.getReligia());
+        assertEquals(opis1, rs.getOpis());
 
+        assertEquals(kId, ks.getId());
+        assertEquals(r.getReligia(), ks.getReligia().getReligia());
+        assertEquals(r.getOpis(), ks.getReligia().getOpis());
+        assertEquals(klasztor1, ks.getNazwa());
         assertEquals(kontakt1, ks.getKontakt());
 
     }
@@ -76,20 +84,52 @@ public class ManagerTest {
         k.setNazwa(klasztor1);
         k.setKontakt(kontakt1);
 
-        Long RId = m.dodaj(r);
-        Long KId = m.dodaj(k);
+        Long rId = m.dodaj(r);
+        Long kId = m.dodaj(k);
 
-        Klasztor ks = m.pobierzKlasztorPoId(KId);
-        Religia rs = m.pobierzReligiePoId(RId);
+        Klasztor ks = m.pobierzKlasztorPoId(kId);
+        Religia rs = m.pobierzReligiePoId(rId);
 
         assertEquals(religia1, rs.getReligia());
         assertEquals(opis1, rs.getOpis());
 
-        assertEquals(r.getReligia(), ks.getReligia().getReligia());
-        assertEquals(r.getOpis(), ks.getReligia().getOpis());
+        assertEquals(religia1, ks.getReligia().getReligia());
+        assertEquals(opis1, ks.getReligia().getOpis());
         assertEquals(klasztor1, ks.getNazwa());
         assertEquals(kontakt1, ks.getKontakt());
 
+    }
+
+    @Test
+    public void sprawdzEdytuj() {
+
+        Religia r = new Religia();
+
+        r.setReligia(religia1);
+        r.setOpis(opis1);
+
+        Klasztor k = new Klasztor();
+
+        k.setReligia(r);
+        k.setNazwa(klasztor1);
+        k.setKontakt(kontakt1);
+
+        Long rId = m.dodaj(r);
+        Long kId = m.dodaj(k);
+
+        m.edytuj(r, religia2, opis2);
+        m.edytuj(k, r, klasztor2, kontakt2);
+
+        Klasztor ks = m.pobierzKlasztorPoId(kId);
+        Religia rs = m.pobierzReligiePoId(rId);
+
+        assertEquals(religia2, rs.getReligia());
+        assertEquals(opis2, rs.getOpis());
+
+        assertEquals(religia2, ks.getReligia().getReligia());
+        assertEquals(opis2, ks.getReligia().getOpis());
+        assertEquals(klasztor2, ks.getNazwa());
+        assertEquals(kontakt2, ks.getKontakt());
     }
 
 }

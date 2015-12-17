@@ -48,6 +48,21 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
+    public void edytuj(Klasztor k, Religia religia, String nazwa, String kontakt) {
+        k.setReligia(religia);
+        k.setNazwa(nazwa);
+        k.setKontakt(kontakt);
+        sf.getCurrentSession().update(k);
+    }
+
+    @Override
+    public void edytuj(Religia r, String religia, String opis) {
+        r.setReligia(religia);
+        r.setOpis(opis);
+        sf.getCurrentSession().update(r);
+    }
+
+    @Override
     @SuppressWarnings("unchecked")
     public List<Klasztor> dajWszystkieKlasztory() {
         return sf.getCurrentSession().getNamedQuery("klasztor.wszystkie").list();
