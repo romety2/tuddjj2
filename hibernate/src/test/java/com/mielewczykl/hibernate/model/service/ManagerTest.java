@@ -19,6 +19,7 @@ import com.mielewczykl.hibernate.model.domain.Religia;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/beans.xml" })
@@ -45,7 +46,7 @@ public class ManagerTest {
     private List<Long>  dodaneReligie = new ArrayList<Long>();
 
     @Before
-         public void sprawdzDodaneElementy() {
+    public void sprawdzDodaneElementy() {
 
         List<Klasztor> klasztory = m.dajWszystkieKlasztory();
         List<Religia> religie = m.dajWszystkieReligie();
@@ -356,9 +357,19 @@ public class ManagerTest {
         m.dodaj(r);
         m.dodaj(k);
 
-        String wzor = religia1.substring(1, religia1.length()-1);
+        //String wzor = religia1.substring(1, religia1.length()-1);
+        String wzor = religia1;
+
+        int ile = 0;
+
+        for(Long l : dodaneKlasztory)
+        {
+          if(Pattern.compile(".*" + wzor + ".*").matcher(m.pobierzKlasztorPoId(l).getReligia().getReligia()).matches())
+                ile++;
+        }
+
         List<Klasztor> lk = m.wyszukajKlasztoryWgReligii(wzor);
 
-        assertNotSame(lk.size(), 0);
+        assertEquals(lk.size(), ile+1);
     }
 }
