@@ -163,40 +163,55 @@ public class ManagerTest {
         m.edytuj(r, religia2, opis2);
         m.edytuj(k, r, klasztor2, kontakt2);
 
-        Klasztor ks = m.pobierzKlasztorPoId(kId);
-        Religia rs = m.pobierzReligiePoId(rId);
-
-        assertEquals(religia2, rs.getReligia());
-        assertEquals(opis2, rs.getOpis());
-
-        assertEquals(religia2, ks.getReligia().getReligia());
-        assertEquals(opis2, ks.getReligia().getOpis());
-        assertEquals(klasztor2, ks.getNazwa());
-        assertEquals(kontakt2, ks.getKontakt());
 
         int i = 0;
+        int j = 0;
 
         List<Klasztor> klasztory2 = m.dajWszystkieKlasztory();
         List<Religia> religie2 = m.dajWszystkieReligie();
 
         for(Klasztor klasz : klasztory) {
-            if(klasz.getId() != kId)
-            {
-                assertEquals(klasztory2.get(i).getReligia().getReligia(), klasz.getReligia().getReligia());
-                assertEquals(klasztory2.get(i).getReligia().getOpis(), klasz.getReligia().getOpis());
-                assertEquals(klasztory2.get(i).getNazwa(), klasz.getNazwa());
-                assertEquals(klasztory2.get(i).getKontakt(), klasz.getKontakt());
+            for (Klasztor klasz2 : klasztory2){
+                if (klasz.getId() != kId && klasz.getId() == klasz2.getId()) {
+                    assertEquals(klasz2.getReligia().getReligia(), klasz.getReligia().getReligia());
+                    assertEquals(klasz2.getReligia().getOpis(), klasz.getReligia().getOpis());
+                    assertEquals(klasz2.getNazwa(), klasz.getNazwa());
+                    assertEquals(klasz2.getKontakt(), klasz.getKontakt());
+                    i++;
+                } else if (klasz.getId() == kId) {
+                    assertEquals(religia2, klasz.getReligia().getReligia());
+                    assertEquals(opis2, klasz.getReligia().getOpis());
+                    assertEquals(klasztor2, klasz.getNazwa());
+                    assertEquals(kontakt2, klasz.getKontakt());
+                    j++;
+                }
             }
-            i++;
         }
+
+        assertEquals(j, 1);
+        assertEquals(i+j, klasztory2.size());
+        assertEquals(klasztory.size(), klasztory2.size());
+
+        i = 0;
+        j = 0;
+
         for(Religia rel : religie) {
-            if(rel.getId() != rId)
-            {
-                assertEquals(religie2.get(i).getReligia(), rel.getReligia());
-                assertEquals(religie2.get(i).getOpis(), rel.getOpis());
+            for (Klasztor rel2 : klasztory2){
+                if (rel.getId() != rId && rel.getId() == rel2.getId()) {
+                    assertEquals(religie2.get(i).getReligia(), rel.getReligia());
+                    assertEquals(religie2.get(i).getOpis(), rel.getOpis());
+                    i++;
+                } else if (rel.getId() == rId) {
+                    assertEquals(religia2, rel.getReligia());
+                    assertEquals(opis2, rel.getOpis());
+                    j++;
+                }
             }
-            i++;
         }
+
+        assertEquals(j, 1);
+        assertEquals(i+j, klasztory2.size());
+        assertEquals(klasztory.size(), klasztory2.size());
     }
 
     @Test
