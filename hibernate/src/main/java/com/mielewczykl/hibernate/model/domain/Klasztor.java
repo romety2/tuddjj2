@@ -1,6 +1,8 @@
 package com.mielewczykl.hibernate.model.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NamedQueries({
@@ -9,7 +11,7 @@ import javax.persistence.*;
 
 public class Klasztor {
     private Long id;
-    private Long religia;
+    private Religia religia;
     private String nazwa;
     private String kontakt;
 
@@ -18,14 +20,15 @@ public class Klasztor {
     public Long getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getReligia() {
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public Religia getReligia() {
         return religia;
     }
-    public void setReligia(long religia) {
+    public void setReligia(Religia religia) {
         this.religia = religia;
     }
 
