@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mielewczykl.hibernate.model.domain.Klasztor;
 import com.mielewczykl.hibernate.model.domain.Religia;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -38,6 +39,44 @@ public class ManagerTest {
 
     private final String klasztor2 = "klasztor2";
     private final String kontakt2 = "kontakt2";
+
+    private List<Long>  dodaneKlasztory = new ArrayList<Long>();
+    private List<Long>  dodaneReligie = new ArrayList<Long>();
+
+    @Before
+         public void sprawdzDodaneElementy() {
+
+        List<Klasztor> klasztory = m.dajWszystkieKlasztory();
+        List<Religia> religie = m.dajWszystkieReligie();
+
+        for(Klasztor klasz : klasztory)
+            dodaneKlasztory.add(klasz.getId());
+
+        for(Religia rel : religie)
+            dodaneReligie.add(rel.getId());
+    }
+
+    @After
+    public void usunTestowaneDane() {
+
+        List<Klasztor> klasztory = m.dajWszystkieKlasztory();
+
+        List<Religia> religie = m.dajWszystkieReligie();
+
+        for(Klasztor klasz : klasztory) {
+            for (Long klasz2 : dodaneKlasztory)
+                if (klasz.getId() == klasz2)
+                    break;
+            m.usun(klasz);
+        }
+
+        for(Religia rel : religie) {
+            for (Long rel2 : dodaneReligie)
+                if (rel.getId() == rel2)
+                    break;
+            m.usun(rel);
+        }
+    }
 
     @Test
     public void sprawdzPobierzPoId() {
@@ -180,8 +219,8 @@ public class ManagerTest {
         List<Klasztor> klasztory = m.dajWszystkieKlasztory();
         List<Religia> religie = m.dajWszystkieReligie();
 
-        m.usun(r);
         m.usun(k);
+        m.usun(r);
 
         int ileK = klasztory.size();
         int ileR = religie.size();

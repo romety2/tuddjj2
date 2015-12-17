@@ -21,7 +21,7 @@ public class Religia {
         this.id = id;
     }
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     public String getReligia() {
         return religia;
     }

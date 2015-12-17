@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Klasztor {
     private Long id;
-    private Religia religia;
+    private Religia religia = new Religia();
     private String nazwa;
     private String kontakt;
 
@@ -24,7 +24,7 @@ public class Klasztor {
         this.id = id;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     public Religia getReligia() {
         return religia;
     }
