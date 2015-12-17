@@ -1,6 +1,7 @@
 package com.mielewczykl.hibernate.model.service;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.After;
@@ -155,9 +156,47 @@ public class ManagerTest {
         Klasztor ks = m.pobierzKlasztorPoId(kId);
         Religia rs = m.pobierzReligiePoId(rId);
 
-        assertEquals(rs, null);
-
         assertEquals(ks, null);
+
+        assertEquals(rs, null);
     }
 
+    @Test
+    public void sprawdzDajWszystkie() {
+
+        List<Klasztor> klasztory = m.dajWszystkieKlasztory();
+        List<Religia> religie = m.dajWszystkieReligie();
+
+        int ileK = klasztory.size();
+        int ileR = religie.size();
+
+        Religia r = new Religia();
+
+        r.setReligia(religia1);
+        r.setOpis(opis1);
+
+        Klasztor k = new Klasztor();
+
+        k.setReligia(r);
+        k.setNazwa(klasztor1);
+        k.setKontakt(kontakt1);
+
+        m.dodaj(r);
+        m.dodaj(k);
+
+        klasztory = m.dajWszystkieKlasztory();
+        religie = m.dajWszystkieReligie();
+
+        assertEquals(ileK+1, klasztory.size());
+        assertEquals(ileR+1, religie.size());
+
+        for(Klasztor klasz : klasztory) {
+            k = m.pobierzKlasztorPoId(klasz.getId());
+            assertNotNull(k);
+        }
+        for(Religia rel : religie) {
+            r = m.pobierzReligiePoId(rel.getId());
+            assertNotNull(r);
+        }
+    }
 }

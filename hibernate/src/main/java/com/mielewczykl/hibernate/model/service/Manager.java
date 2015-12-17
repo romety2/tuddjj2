@@ -20,5 +20,6 @@ public interface Manager {
     void usun(Religia r);
 
     List<Klasztor> dajWszystkieKlasztory();
+    List<Religia> dajWszystkieReligie();
 
 }

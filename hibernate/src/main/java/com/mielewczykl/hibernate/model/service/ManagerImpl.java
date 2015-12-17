@@ -81,4 +81,10 @@ public class ManagerImpl implements Manager {
     public List<Klasztor> dajWszystkieKlasztory() {
         return sf.getCurrentSession().getNamedQuery("klasztor.wszystkie").list();
     }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Religia> dajWszystkieReligie() {
+        return sf.getCurrentSession().getNamedQuery("religia.wszystkie").list();
+    }
 }
