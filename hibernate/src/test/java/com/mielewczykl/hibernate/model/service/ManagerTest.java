@@ -2,6 +2,7 @@ package com.mielewczykl.hibernate.model.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
 
 import org.junit.Before;
 import org.junit.After;
@@ -336,5 +337,28 @@ public class ManagerTest {
             r = m.pobierzReligiePoId(rel.getId());
             assertNotNull(r);
         }
+    }
+
+    @Test
+    public void sprawdzWyszukajKlasztoryWgReligii() {
+
+        Religia r = new Religia();
+
+        r.setReligia(religia1);
+        r.setOpis(opis1);
+
+        Klasztor k = new Klasztor();
+
+        k.setReligia(r);
+        k.setNazwa(klasztor1);
+        k.setKontakt(kontakt1);
+
+        m.dodaj(r);
+        m.dodaj(k);
+
+        String wzor = religia1.substring(1, religia1.length()-1);
+        List<Klasztor> lk = m.wyszukajKlasztoryWgReligii(wzor);
+
+        assertNotSame(lk.size(), 0);
     }
 }

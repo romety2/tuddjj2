@@ -22,4 +22,6 @@ public interface Manager {
     List<Klasztor> dajWszystkieKlasztory();
     List<Religia> dajWszystkieReligie();
 
+    List<Klasztor> wyszukajKlasztoryWgReligii(String wzorzec);
+
 }

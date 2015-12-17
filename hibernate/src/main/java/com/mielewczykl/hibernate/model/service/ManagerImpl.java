@@ -8,7 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static org.junit.Assert.assertNotNull;
 
 @Component
 @Transactional
@@ -87,4 +92,19 @@ public class ManagerImpl implements Manager {
     public List<Religia> dajWszystkieReligie() {
         return sf.getCurrentSession().getNamedQuery("religia.wszystkie").list();
     }
+
+    @Override
+    public List<Klasztor> wyszukajKlasztoryWgReligii(String wzorzec){
+        List<Klasztor> lk = new ArrayList<Klasztor>();
+        Pattern p = Pattern.compile(".*"+wzorzec+".*");
+        Matcher m;
+        for(Klasztor k : dajWszystkieKlasztory())
+        {
+            m = p.matcher(k.getReligia().getReligia());
+            if(m.matches())
+                lk.add(k);
+        }
+        return lk;
+    }
+
 }
