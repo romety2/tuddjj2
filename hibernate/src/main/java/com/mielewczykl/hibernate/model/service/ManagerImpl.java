@@ -49,6 +49,7 @@ public class ManagerImpl implements Manager {
 
     @Override
     public void edytuj(Klasztor k, Religia religia, String nazwa, String kontakt) {
+        k = (Klasztor) sf.getCurrentSession().get(Klasztor.class, k.getId());
         k.setReligia(religia);
         k.setNazwa(nazwa);
         k.setKontakt(kontakt);
@@ -57,9 +58,22 @@ public class ManagerImpl implements Manager {
 
     @Override
     public void edytuj(Religia r, String religia, String opis) {
+        r = (Religia) sf.getCurrentSession().get(Religia.class, r.getId());
         r.setReligia(religia);
         r.setOpis(opis);
         sf.getCurrentSession().update(r);
+    }
+
+    @Override
+    public void usun(Klasztor k) {
+        k = (Klasztor) sf.getCurrentSession().get(Klasztor.class, k.getId());
+        sf.getCurrentSession().delete(k);
+    }
+
+    @Override
+    public void usun(Religia r) {
+        r = (Religia) sf.getCurrentSession().get(Religia.class, r.getId());
+        sf.getCurrentSession().delete(r);
     }
 
     @Override

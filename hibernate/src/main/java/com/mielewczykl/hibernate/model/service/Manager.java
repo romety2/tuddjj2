@@ -16,6 +16,9 @@ public interface Manager {
     void edytuj(Klasztor k, Religia religia, String nazwa, String kontakt);
     void edytuj(Religia r, String religia, String opis);
 
+    void usun(Klasztor k);
+    void usun(Religia r);
+
     List<Klasztor> dajWszystkieKlasztory();
 
 }

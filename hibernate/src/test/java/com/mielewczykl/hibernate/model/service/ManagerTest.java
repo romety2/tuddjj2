@@ -132,4 +132,32 @@ public class ManagerTest {
         assertEquals(kontakt2, ks.getKontakt());
     }
 
+    @Test
+    public void sprawdzUsun() {
+
+        Religia r = new Religia();
+
+        r.setReligia(religia1);
+        r.setOpis(opis1);
+
+        Klasztor k = new Klasztor();
+
+        k.setReligia(r);
+        k.setNazwa(klasztor1);
+        k.setKontakt(kontakt1);
+
+        Long rId = m.dodaj(r);
+        Long kId = m.dodaj(k);
+
+        m.usun(r);
+        m.usun(k);
+
+        Klasztor ks = m.pobierzKlasztorPoId(kId);
+        Religia rs = m.pobierzReligiePoId(rId);
+
+        assertEquals(rs, null);
+
+        assertEquals(ks, null);
+    }
+
 }
