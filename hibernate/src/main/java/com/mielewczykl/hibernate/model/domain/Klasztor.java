@@ -32,6 +32,7 @@ public class Klasztor {
         this.religia = religia;
     }
 
+    @Column(nullable = false)
     public String getNazwa() {
         return nazwa;
     }
