@@ -240,19 +240,33 @@ public class ManagerTest {
         int i = 0;
 
         for(Klasztor klasz : klasztory) {
-            if(klasz.getId() != kId)
-            {
-                assertEquals(klasztory2.get(i), klasz.getId());
-                i++;
-            }
+            for(Klasztor klasz2 : klasztory2)
+                if(klasz.getId() == klasz2.getId())
+                {
+                    assertEquals(klasz2.getReligia().getReligia(), klasz.getReligia().getReligia());
+                    assertEquals(klasz2.getReligia().getOpis(), klasz.getReligia().getOpis());
+                    assertEquals(klasz2.getNazwa(), klasz.getNazwa());
+                    assertEquals(klasz2.getKontakt(), klasz.getKontakt());
+                    i++;
+                }
         }
+
+        assertEquals(klasztory2.size(), i);
+
+        i = 0;
+
         for(Religia rel : religie) {
-            if(rel.getId() != rId)
+            for(Religia rel2 : religie2)
             {
-                assertEquals(religie2.get(i), rel.getId());
-                i++;
+                if(rel.getId() == rel2.getId()) {
+                    assertEquals(rel2.getReligia(), rel.getReligia());
+                    assertEquals(rel2.getOpis(), rel.getOpis());
+                    i++;
+                }
             }
         }
+
+        assertEquals(religie2.size(), i);
     }
 
     @Test
