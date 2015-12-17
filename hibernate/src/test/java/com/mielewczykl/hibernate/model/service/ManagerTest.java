@@ -37,6 +37,32 @@ public class ManagerTest {
     private final String kontakt2 = "kontakt2";
 
     @Test
+    public void sprawdzPobierzPoId() {
+
+        Religia r = new Religia();
+
+        r.setReligia(religia1);
+        r.setOpis(opis1);
+
+        Klasztor k = new Klasztor();
+
+        k.setReligia(r);
+        k.setNazwa(klasztor1);
+        k.setKontakt(kontakt1);
+
+        Long RId = m.dodaj(r);
+        Long KId = m.dodaj(k);
+
+        Klasztor ks = m.pobierzKlasztorPoId(KId);
+        Religia rs = m.pobierzReligiePoId(RId);
+
+        assertEquals(religia1, rs.getReligia());
+
+        assertEquals(kontakt1, ks.getKontakt());
+
+    }
+
+    @Test
     public void sprawdzDodaj() {
 
         Religia r = new Religia();
@@ -64,14 +90,6 @@ public class ManagerTest {
         assertEquals(klasztor1, ks.getNazwa());
         assertEquals(kontakt1, ks.getKontakt());
 
-    }
-
-    @Test
-    public void sprawdzDajWszystkie() {
-
-        //List<Klasztor> klasztory = m.dajWszystkieKlasztory();
-
-        assertEquals(0, 0);
     }
 
 }
