@@ -94,7 +94,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public List<Klasztor> wyszukajKlasztoryWgReligii(String wzorzec){
+    public List<Klasztor> wyszukajKlasztoryWgWzorcaReligii(String wzorzec){
         List<Klasztor> lk = new ArrayList<Klasztor>();
         Pattern p = Pattern.compile(".*"+wzorzec+".*");
         Matcher m;
@@ -107,4 +107,13 @@ public class ManagerImpl implements Manager {
         return lk;
     }
 
+    @Override
+    public List<Klasztor> wyszukajKlasztory(Religia r){
+        List<Klasztor> kw = dajWszystkieKlasztory();
+        List<Klasztor> k = new ArrayList<Klasztor>();
+        for (Klasztor klasz : kw)
+            if(klasz.getReligia().getId() == r.getId())
+                k.add(klasz);
+        return k;
+    }
 }

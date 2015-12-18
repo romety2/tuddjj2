@@ -2,7 +2,6 @@ package com.mielewczykl.hibernate.model.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
 
 import org.junit.Before;
 import org.junit.After;
@@ -341,7 +340,7 @@ public class ManagerTest {
     }
 
     @Test
-    public void sprawdzWyszukajKlasztoryWgReligii() {
+    public void sprawdzWyszukajKlasztoryWgWzorcaReligii() {
 
         Religia r = new Religia();
 
@@ -368,8 +367,50 @@ public class ManagerTest {
                 ile++;
         }
 
-        List<Klasztor> lk = m.wyszukajKlasztoryWgReligii(wzor);
+        List<Klasztor> lk = m.wyszukajKlasztoryWgWzorcaReligii(wzor);
 
         assertEquals(lk.size(), ile+1);
+    }
+
+    @Test
+    public void sprawdzWyszukajKlasztory(){
+
+
+        Religia r1 = new Religia();
+        Religia r2 = new Religia();
+
+        r1.setReligia(religia1);
+        r1.setOpis(opis1);
+
+        r2.setReligia(religia2);
+        r2.setOpis(opis2);
+
+        m.dodaj(r1);
+        m.dodaj(r2);
+
+        Klasztor k1 = new Klasztor();
+        Klasztor k2 = new Klasztor();
+
+        k1.setReligia(r1);
+        k1.setNazwa(klasztor1);
+        k1.setKontakt(kontakt1);
+
+        k2.setReligia(r1);
+        k2.setNazwa(klasztor2);
+        k2.setKontakt(kontakt2);
+
+        m.dodaj(k1);
+        m.dodaj(k2);
+
+        assertEquals(m.wyszukajKlasztory(r1).size(), 2);
+
+        for(Klasztor k : m.wyszukajKlasztory(r1)) {
+            assertEquals(r1.getId(), k.getReligia().getId());
+            assertEquals(r1.getReligia(), k.getReligia().getReligia());
+            assertEquals(r1.getOpis(), k.getReligia().getOpis());
+        }
+
+        assertEquals(m.wyszukajKlasztory(r2).size(), 0);
+
     }
 }
