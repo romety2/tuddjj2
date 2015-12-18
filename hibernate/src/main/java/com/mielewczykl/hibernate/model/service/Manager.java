@@ -26,4 +26,6 @@ public interface Manager {
 
     List<Klasztor> wyszukajKlasztory(Religia r);
 
+    void usunZaleznosci(Religia r);
+
 }

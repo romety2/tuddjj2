@@ -21,7 +21,6 @@ public class Religia {
         this.id = id;
     }
 
-    @Column(nullable = false)
     public String getReligia() {
         return religia;
     }

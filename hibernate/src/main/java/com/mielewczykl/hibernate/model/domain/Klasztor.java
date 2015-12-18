@@ -1,5 +1,7 @@
 package com.mielewczykl.hibernate.model.domain;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +26,7 @@ public class Klasztor {
         this.id = id;
     }
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     public Religia getReligia() {
         return religia;
     }

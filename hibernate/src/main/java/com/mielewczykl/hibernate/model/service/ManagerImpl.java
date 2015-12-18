@@ -13,8 +13,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.junit.Assert.assertNotNull;
-
 @Component
 @Transactional
 public class ManagerImpl implements Manager {
@@ -115,5 +113,13 @@ public class ManagerImpl implements Manager {
             if(klasz.getReligia().getId() == r.getId())
                 k.add(klasz);
         return k;
+    }
+
+    @Override
+    public void usunZaleznosci(Religia r){
+        List<Klasztor> klasztory = dajWszystkieKlasztory();
+        for (Klasztor klasz : klasztory)
+            if(klasz.getReligia().getId() == r.getId())
+                usun(klasz);
     }
 }

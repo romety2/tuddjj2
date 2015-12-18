@@ -413,4 +413,62 @@ public class ManagerTest {
         assertEquals(m.wyszukajKlasztory(r2).size(), 0);
 
     }
+
+    @Test
+    public void sprawdzUsunZaleznosci() {
+
+
+        Religia r1 = new Religia();
+
+        r1.setReligia(religia1);
+        r1.setOpis(opis1);
+
+        Long idR1 = m.dodaj(r1);
+
+        Klasztor k1 = new Klasztor();
+        Klasztor k2 = new Klasztor();
+
+        k1.setReligia(r1);
+        k1.setNazwa(klasztor1);
+        k1.setKontakt(kontakt1);
+
+        k2.setReligia(r1);
+        k2.setNazwa(klasztor2);
+        k2.setKontakt(kontakt2);
+
+        Long idK1 = m.dodaj(k1);
+        Long idK2 = m.dodaj(k2);
+
+        List<Klasztor> klasztory = m.dajWszystkieKlasztory();
+
+        int ile = klasztory.size();
+
+        m.usunZaleznosci(r1);
+
+        Klasztor ks1 = m.pobierzKlasztorPoId(idK1);
+        Klasztor ks2 = m.pobierzKlasztorPoId(idK2);
+
+        assertEquals(ks1, null);
+        assertEquals(ks2, null);
+
+        List<Klasztor> klasztory2 = m.dajWszystkieKlasztory();
+
+        assertEquals(klasztory2.size(), ile-2);
+
+        int i = 0;
+
+        for(Klasztor klasz : klasztory) {
+            for(Klasztor klasz2 : klasztory2)
+                if(klasz.getId() == klasz2.getId())
+                {
+                    assertEquals(klasz2.getReligia().getReligia(), klasz.getReligia().getReligia());
+                    assertEquals(klasz2.getReligia().getOpis(), klasz.getReligia().getOpis());
+                    assertEquals(klasz2.getNazwa(), klasz.getNazwa());
+                    assertEquals(klasz2.getKontakt(), klasz.getKontakt());
+                    i++;
+                }
+        }
+
+        assertEquals(klasztory2.size(), i);
+    }
 }
