@@ -44,7 +44,7 @@ public class ManagerTest {
     private List<Long>  dodaneKlasztory = new ArrayList<Long>();
     private List<Long>  dodaneReligie = new ArrayList<Long>();
 
-    /*@Before
+    @Before
     public void sprawdzDodaneElementy() {
 
         List<Klasztor> klasztory = m.dajWszystkieKlasztory();
@@ -88,16 +88,9 @@ public class ManagerTest {
             if(usun)
                 m.usun(rel);
         }
-    } */
-
-    @Test
-    public void test() {
-
-        assertEquals(kontakt1, kontakt1);
-
     }
-
-    /*@Test
+    
+    @Test
     public void sprawdzPobierzPoId() {
 
         Religia r = new Religia();
@@ -477,5 +470,5 @@ public class ManagerTest {
         }
 
         assertEquals(klasztory2.size(), i);
-    }*/
+    }
 }

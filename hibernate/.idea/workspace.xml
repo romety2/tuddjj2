@@ -24,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ManagerTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ManagerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/mielewczykl/hibernate/model/service/ManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.18715084">
+              <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1480#1486#0" expanded="true" />
@@ -42,18 +42,30 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/service/ManagerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+              <caret line="90" column="62" selection-start-line="90" selection-start-column="62" selection-end-line="90" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#659#660#0" expanded="true" />
+                <element signature="e#684#685#0" expanded="true" />
+                <element signature="e#740#741#0" expanded="true" />
+                <element signature="e#768#769#0" expanded="true" />
+                <element signature="e#834#835#0" expanded="true" />
+                <element signature="e#914#915#0" expanded="true" />
+                <element signature="e#978#979#0" expanded="true" />
+                <element signature="e#1056#1057#0" expanded="true" />
+                <element signature="e#2306#2336#0" expanded="true" />
+                <element signature="e#2496#2526#0" expanded="true" />
+                <element signature="e#2795#2805#0" expanded="true" />
+                <element signature="e#3254#3264#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Klasztor.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Klasztor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/domain/Klasztor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4273743">
+            <state vertical-scroll-proportion="0.0">
               <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -137,7 +149,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/service/Manager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -176,11 +188,11 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/beans.xml" />
         <option value="$PROJECT_DIR$/hibernate.iml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/domain/Religia.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/domain/Klasztor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/service/ManagerImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/service/Manager.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mielewczykl/hibernate/model/service/ManagerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/domain/Religia.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/domain/Klasztor.java" />
       </list>
     </option>
   </component>
@@ -709,12 +721,12 @@
       <workItem from="1450323253107" duration="7215000" />
       <workItem from="1450348743509" duration="14643000" />
       <workItem from="1450374735426" duration="21962000" />
-      <workItem from="1450429845699" duration="26389000" />
+      <workItem from="1450429845699" duration="26866000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128057000" />
+    <option name="totallyTimeSpent" value="128534000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="786" extended-state="7" />
@@ -806,6 +818,18 @@
           <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#659#660#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="e#914#915#0" expanded="true" />
+            <element signature="e#978#979#0" expanded="true" />
+            <element signature="e#1056#1057#0" expanded="true" />
+            <element signature="e#2306#2336#0" expanded="true" />
+            <element signature="e#2496#2526#0" expanded="true" />
+            <element signature="e#2795#2805#0" expanded="true" />
+            <element signature="e#3254#3264#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -885,6 +909,18 @@
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#659#660#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="e#914#915#0" expanded="true" />
+            <element signature="e#978#979#0" expanded="true" />
+            <element signature="e#1056#1057#0" expanded="true" />
+            <element signature="e#2306#2336#0" expanded="true" />
+            <element signature="e#2496#2526#0" expanded="true" />
+            <element signature="e#2795#2805#0" expanded="true" />
+            <element signature="e#3254#3264#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1161,36 +1197,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/service/ManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/service/Manager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mielewczykl/hibernate/model/service/ManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1480#1486#0" expanded="true" />
-            <element signature="e#1543#1549#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/domain/Religia.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1218,7 +1224,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/domain/Klasztor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4273743">
+        <state vertical-scroll-proportion="0.0">
           <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1236,6 +1242,48 @@
             <element signature="e#962#963#0" expanded="true" />
             <element signature="e#1007#1008#0" expanded="true" />
             <element signature="e#1045#1046#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/service/Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mielewczykl/hibernate/model/service/ManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="62" selection-start-line="90" selection-start-column="62" selection-end-line="90" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#659#660#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="e#914#915#0" expanded="true" />
+            <element signature="e#978#979#0" expanded="true" />
+            <element signature="e#1056#1057#0" expanded="true" />
+            <element signature="e#2306#2336#0" expanded="true" />
+            <element signature="e#2496#2526#0" expanded="true" />
+            <element signature="e#2795#2805#0" expanded="true" />
+            <element signature="e#3254#3264#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mielewczykl/hibernate/model/service/ManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18715084">
+          <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1480#1486#0" expanded="true" />
+            <element signature="e#1543#1549#0" expanded="true" />
           </folding>
         </state>
       </provider>

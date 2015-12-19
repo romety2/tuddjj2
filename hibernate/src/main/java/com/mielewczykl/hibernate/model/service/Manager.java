@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface Manager {
 
-    /*Klasztor pobierzKlasztorPoId(Long id);
+    Klasztor pobierzKlasztorPoId(Long id);
     Religia pobierzReligiePoId(Long id);
 
     Long dodaj(Klasztor klasztor);
@@ -26,6 +26,6 @@ public interface Manager {
 
     List<Klasztor> wyszukajKlasztory(Religia r);
 
-    void usunZaleznosci(Religia r);*/
+    void usunZaleznosci(Religia r);
 
 }
