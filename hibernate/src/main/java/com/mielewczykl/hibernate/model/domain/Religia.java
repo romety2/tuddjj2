@@ -1,18 +1,20 @@
 package com.mielewczykl.hibernate.model.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @NamedQueries({
         @NamedQuery(name = "religia.wszystkie", query = "SELECT r FROM Religia r"),
 })
-
-public class Religia {
+public class Religia implements java.io.Serializable{
     private Long id;
     private String religia;
     private String opis;
-    private  ArrayList<Klasztor> klasztory;
+
+    private Set<Klasztor> klasztory = new HashSet<Klasztor>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,15 +25,15 @@ public class Religia {
         this.id = id;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    public ArrayList<Klasztor> getKlasztory() {
+    @OneToMany(mappedBy = "religia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public Set<Klasztor> getKlasztory() {
         return klasztory;
     }
-
-    public void setKlasztory(ArrayList<Klasztor> klasztory) {
-        this.klasztory = klasztory;
+    public void setKlasztory(Set<Klasztor> klasztory) {
+        this.klasztory =  klasztory;
     }
 
+    @Column(nullable = false)
     public String getReligia() {
         return religia;
     }

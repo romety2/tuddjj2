@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 @Transactional
 public class ManagerImpl implements Manager {
 
-    @Autowired
+    /*@Autowired
     private SessionFactory sf;
 
     public SessionFactory getSessionFactory() {
@@ -121,5 +121,5 @@ public class ManagerImpl implements Manager {
         for (Klasztor klasz : klasztory)
             if(klasz.getReligia().getId() == r.getId())
                 usun(klasz);
-    }
+    }*/
 }
