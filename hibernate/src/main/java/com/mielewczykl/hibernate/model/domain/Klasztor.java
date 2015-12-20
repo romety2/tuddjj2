@@ -24,6 +24,7 @@ public class Klasztor implements java.io.Serializable{
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_religia", nullable = false)
     public Religia getReligia() {
         return religia;
     }

@@ -119,7 +119,9 @@ public class ManagerImpl implements Manager {
     public void usunZaleznosci(Religia r){
         List<Klasztor> klasztory = dajWszystkieKlasztory();
         for (Klasztor klasz : klasztory)
+        {
             if(klasz.getReligia().getId() == r.getId())
                 usun(klasz);
+        }
     }
 }
