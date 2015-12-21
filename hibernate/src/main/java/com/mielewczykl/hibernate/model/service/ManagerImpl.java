@@ -40,22 +40,34 @@ public class ManagerImpl implements Manager {
 
     @Override
     public Long dodaj(Klasztor klasztor) {
-        klasztor.setId(null);
-        return (Long) sf.getCurrentSession().save(klasztor);
+        Long id = (Long) sf.getCurrentSession().save(klasztor);
+        klasztor.setId(id);
+        Religia religia = (Religia) sf.getCurrentSession().get(Religia.class, klasztor.getReligia().getId());
+        religia.getKlasztory().add(klasztor);
+        return id;
     }
 
     @Override
     public Long dodaj(Religia religia) {
-        religia.setId(null);
-        return (Long) sf.getCurrentSession().save(religia);
+        Long id = (Long) sf.getCurrentSession().save(religia);
+        religia.setId(id);
+        return id;
     }
 
     @Override
     public void edytuj(Klasztor k, Religia religia, String nazwa, String kontakt) {
         k = (Klasztor) sf.getCurrentSession().get(Klasztor.class, k.getId());
+        Religia r = (Religia) sf.getCurrentSession().get(Religia.class, k.getReligia().getId());
+        int i = 0;
+        for(Klasztor klasz : r.getKlasztory()) {
+            if (klasz == k)
+                break;
+            i++;
+        }
         k.setReligia(religia);
         k.setNazwa(nazwa);
         k.setKontakt(kontakt);
+        r.getKlasztory().set(i, k);
         sf.getCurrentSession().update(k);
     }
 
@@ -70,6 +82,8 @@ public class ManagerImpl implements Manager {
     @Override
     public void usun(Klasztor k) {
         k = (Klasztor) sf.getCurrentSession().get(Klasztor.class, k.getId());
+        Religia r = (Religia) sf.getCurrentSession().get(Religia.class, k.getReligia().getId());
+        r.getKlasztory().remove(k);
         sf.getCurrentSession().delete(k);
     }
 

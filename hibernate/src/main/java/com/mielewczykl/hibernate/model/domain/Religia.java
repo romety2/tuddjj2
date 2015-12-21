@@ -8,7 +8,7 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(name = "religia.wszystkie", query = "SELECT r FROM Religia r"),
 })
-public class Religia{
+public class Religia {
     private Long id;
     private String religia;
     private String opis;

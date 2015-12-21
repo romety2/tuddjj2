@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "klasztor.wszystkie", query = "SELECT k FROM Klasztor k"),
+        @NamedQuery(name = "klasztor.wszystkie", query = "SELECT k FROM Klasztor k")
 })
 public class Klasztor implements java.io.Serializable{
     private Long id;
@@ -28,9 +28,7 @@ public class Klasztor implements java.io.Serializable{
     public Religia getReligia() {
         return religia;
     }
-    public void setReligia(Religia religia) {
-        this.religia = religia;
-    }
+    public void setReligia(Religia religia) { this.religia = religia; }
 
     @Column(nullable = false)
     public String getNazwa() {

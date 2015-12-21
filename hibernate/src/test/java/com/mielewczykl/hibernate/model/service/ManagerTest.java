@@ -22,16 +22,9 @@ import java.util.regex.Pattern;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/beans.xml" })
-@TransactionConfiguration(transactionManager = "txManager", defaultRollback = false)
+@TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
 @Transactional
 public class ManagerTest {
-
-    /*@Test
-    public void test() {
-
-        assertEquals(0, 0);
-
-    }*/
 
     @Autowired
     Manager m;
@@ -448,8 +441,6 @@ public class ManagerTest {
 
         List<Klasztor> klasztory = m.dajWszystkieKlasztory();
 
-        int ile = klasztory.size();
-
         m.usunZaleznosci(r1);
 
         Klasztor ks1 = m.pobierzKlasztorPoId(idK1);
@@ -460,7 +451,7 @@ public class ManagerTest {
 
         List<Klasztor> klasztory2 = m.dajWszystkieKlasztory();
 
-        assertEquals(klasztory2.size(), ile-2);
+        assertEquals(klasztory2.size(), klasztory.size()-2);
 
         int i = 0;
 
@@ -487,8 +478,6 @@ public class ManagerTest {
         r1.setReligia(religia1);
         r1.setOpis(opis1);
 
-        List<Klasztor> lk = new ArrayList<Klasztor>();
-
         m.dodaj(r1);
 
         Klasztor k1 = new Klasztor();
@@ -502,17 +491,10 @@ public class ManagerTest {
         k2.setNazwa(klasztor2);
         k2.setKontakt(kontakt2);
 
-        lk.add(k1);
-        lk.add(k2);
-
-        r1.setKlasztory(lk);
-
         Long idK1 = m.dodaj(k1);
         Long idK2 = m.dodaj(k2);
 
         List<Klasztor> klasztory = m.dajWszystkieKlasztory();
-
-        int ile = klasztory.size();
 
         m.usun(r1);
 
@@ -524,7 +506,7 @@ public class ManagerTest {
 
         List<Klasztor> klasztory2 = m.dajWszystkieKlasztory();
 
-        assertEquals(klasztory2.size(), ile-2);
+        assertEquals(klasztory2.size(), klasztory.size()-2);
 
         int i = 0;
 
