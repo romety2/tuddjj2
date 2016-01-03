@@ -22,3 +22,5 @@ dist
 .CVS
 .hg*
 
+# hsqldb
+hsqldb*
